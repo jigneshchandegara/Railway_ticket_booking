@@ -1,0 +1,5 @@
+/node_modules
+.env
+note.text
+SchemaCreation.text
+table.text
