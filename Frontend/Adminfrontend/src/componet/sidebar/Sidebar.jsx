@@ -20,14 +20,20 @@ const Dashboard = () => {
     };
     const toggleStation = () => {
         setStationOpen(!isStationOpen);
+        setTrainOpen(false);
+        setbookingOpen(false);
     };
 
     const toggleTrain = () => {
         setTrainOpen(!isTrainOpen);
+        setStationOpen(false);
+        setbookingOpen(false);
     };
 
     const toggleBooking = () => {
         setbookingOpen(!isbookingOpen);
+        setTrainOpen(false);
+        setStationOpen(false);
     };
 
     const Signout = () => {

@@ -26,14 +26,7 @@ const Signup = () => {
         e.preventDefault();
 
         const formdata = new FormData();
-        // const username = username.current.value
-        // const email = email.current.value
-        // const phone = phone.current.value
-        // const age = age.current.value
-        // const gender = gender.current.value
-        // const proof = proof.current.value
-        // const profile = profile.current.files[0]
-        // const password = password.current.value
+
         formdata.append("username", username.current.value);
         formdata.append("email", email.current.value);
         formdata.append("phone", phone.current.value);

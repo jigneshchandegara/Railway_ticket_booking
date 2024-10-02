@@ -9,3 +9,11 @@ export let USER_UPDATA = "/User/updateAccountDetails/"
 export let USER_LOGIN = "/User/User_login"
 
 export let TRAIN_SCHEDULE_SEARCH = "/TrainSchedule/train-Search"
+
+//booking
+export let BOOKING_POST = "/Booking/createbooking"
+export let BOOKING_GET = "/Booking/getbooking"
+export let BOOKING_DELETE = "/Booking/updatastatusbooking/:id"
+export let BOOKING_UPDATA = "/Booking/cancelledbooking/:id "
+export let BOOKING_CANCELL = "/cancelledbooking/:id "
+

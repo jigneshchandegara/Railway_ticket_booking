@@ -12,11 +12,16 @@ const initialState = {
 export const getTrainSchedules = createAsyncThunk(
     'getTrainSchedules',
     async ({ departureStationId, arrivalStationId, date }) => {
-        const response = await axios.get(
-           `http://localhost:8080/Api/TrainSchedule/train-Search?departureStationId=${departureStationId}&arrivalStationId=${arrivalStationId}&date=${date}`
-        );
-        console.log(response.data ,"data");
-        return response.data.data;
+        try {
+            const response = await axios.get(
+                `http://localhost:8080/Api/TrainSchedule/train-Search?departureStationId=${departureStationId}&arrivalStationId=${arrivalStationId}&date=${date}`
+            );
+            console.log(response.data, "data");
+            return response.data.data;
+        } catch (error) {
+            return rejectWithValue(error.response ? error.response.data : error.message);
+        }
+
     }
 );
 
@@ -33,8 +38,8 @@ const trainSlice = createSlice({
             .addCase(getTrainSchedules.fulfilled, (state, action) => {
                 state.isloading = false;
                 state.Serachtrain = action.payload;
-                console.log( action.payload ,"action");
-                
+                console.log(action.payload, "action");
+
             })
             .addCase(getTrainSchedules.rejected, (state, action) => {
                 state.isloading = false;

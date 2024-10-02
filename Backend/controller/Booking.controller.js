@@ -4,22 +4,18 @@ const ApiResponse = require("../utils/ApiResponse");
 const asyncHandler = require("../utils/asyncHandler");
 
 let bookingpost = asyncHandler(async (req, res) => {
-    let { trainScheduleId, passengerId, Numberofseat, selectClass,status, bookingDate } = req.body
-
+    let { trainScheduleId, passenger, Numberofseat, selectClass, bookingDate } = req.body
+ 
     if (!(trainScheduleId || passengerId || Numberofseat || selectClass || bookingDate)) {
         throw new ApiError(400, "All required fields must be provided")
     }
 
-    if (!req.user) {
-        throw new ApiError(401, "User authentication required");
-    }
 
     const booking = await Booking.create({
         trainScheduleId,
-        passengerId ,
+        passenger,
         Numberofseat,
         selectClass,
-        status,
         bookingDate
     });
 
